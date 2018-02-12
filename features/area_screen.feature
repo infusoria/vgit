@@ -1,10 +1,12 @@
 @area
 Feature: User is able to convert area units
-@menu
+
+  @wip
   Scenario: User is able to dismiss help
     Given I land on help popup
     When I click on GOT IT button
     Then I land on Area screen
+
 
   Scenario: User  is able to swap values
     Given I click on GOT IT button
