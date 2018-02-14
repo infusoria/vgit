@@ -1,4 +1,4 @@
-@area
+
 Feature: User is able to convert area units
 
 
@@ -12,14 +12,13 @@ Feature: User is able to convert area units
 #    When I click on GOT IT button
 #    Then I land on Arean screen
 
-
+  @wip
   Scenario: User  is able to swap values
     Given I see "Sq Kilometre" in FROM header
     And I see "Sq Metre" in TO header
     When I click on SWAP button
     Then I see "Sq Metre" in FROM header
     And I see "Sq Kilometre" in TO header
-
 
   Scenario Outline: User is  able to convert default units
     Given I click on CLEAR button
@@ -31,7 +30,7 @@ Feature: User is able to convert area units
     |2     |2000000|
     |3     |3000000|
 
-  @wip
+
   Scenario: User is able to use soft keyboard to enter values
     Given I click on CLEAR button
     When I click on FROM field
@@ -43,3 +42,17 @@ Feature: User is able to convert area units
     When I select "Hectare" from left column
     Then I see "Hectare" in FROM header
     And I get "10000" in TO field
+
+
+  @urok3
+  Scenario Outline: User is able to convert Sq Kilometre to Sq Sm, Hectare, Sq Mile
+    Given I see "Sq Kilometre" in FROM header
+    And I see "Sq Metre" in TO header
+    When I select "<target>" from right column
+    Then I get "<result>" in TO field
+
+    Examples:
+      |target|result|
+      |Sq Centimetre|10000000000|
+      |Hectare      |100        |
+      |Sq Mile      |0.3861     |

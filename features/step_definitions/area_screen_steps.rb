@@ -79,3 +79,12 @@ When(/^I select "([^"]*)" from left column$/) do |value|
     fail("Expected value is #{value}, but actual value was #{actual_value}")
   end
 end
+
+
+When(/^I select "([^"]*)" from right column$/) do |value|
+  find_element(id: "radio_group_to").find_element(xpath: "//android.widget.RadioButton[@text='#{value}']").click
+  actual_value = find_element(id: "radio_group_to").find_element(xpath: "//android.widget.RadioButton[@text='#{value}']").text
+  if actual_value != value
+    fail("Expected value is #{value}, but actual value was #{actual_value}")
+  end
+end
